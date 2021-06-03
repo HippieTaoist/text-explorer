@@ -5,50 +5,51 @@
 // The first step is to create a way for the user to move around a coordinate system that has an x and y axis.
 const prompt = require('prompt-sync')();
 
-console.log("Welcome to the Your Mental Jungle!!");
-console.log("Travel your mental maze to");
-console.log("Find The Golden Haze")
-
-// console.log("On your search collect treasures and items to help you along you way.");
-// console.log('');
-// console.log('BEWARE the SensiTrolls who like to eat up all your nugerts')
-console.log('We enter our story centered in your mind. Peaceful, Serenire, engulfed in the VOID')
-console.log('A cry for help stirs us from our slumber.');
-console.log('Anguish and despair fill the air as the sounds of someone wrestling with reality make themselves known')
-
 let x = 0;
 let y = 0;
 
 let directMe = 0;
+let winner = 0;
 
-//corrdinates 0,1
-while (x !== 4 && y !== 2) {
-    console.log('Location: ', x, y, );
+while (winner === 0) {
+    console.log('Location: ', x, y);
     console.log('(1) - North');
     console.log('(2) - East');
     console.log('(3) - South');
     console.log('(4) - West');
-    directMe = prompt('Which is the direction of your choosing Sage?');
+    directMe = prompt('Which is the direction of your choosing?');
     directMe = Number(directMe);
     console.log(typeof(directMe));
     if (directMe === 1) {
         console.log('You have choosen North');
         y = y + 1
-        console.log('Your new co-ordinates are', x, y)
+        console.log('Your new co-ordinates are', x, y);
+
     } else
     if (directMe === 2) {
         console.log('You have choosen East')
         x = x + 1;
+        console.log('Your new co-ordinates are', x, y);
+
     } else
     if (directMe === 3) {
         console.log('You have choosen South');
         x = x - 1;
+        console.log('Your new co-ordinates are', x, y);
+
     } else
     if (directMe === 4) {
         console.log('You have choosen West');
         y = y - 1;
+        console.log('Your new co-ordinates are', x, y);
+
     } else {
         console.log('Sage you are trying to travel in a realm we are not yet adapt to! Please select again.');
+    }
+    if (x === 4) {
+        if (y === 2) {
+            winner = 1;
+        } else { winner = 0; }
     }
 
 
@@ -56,9 +57,9 @@ while (x !== 4 && y !== 2) {
 
 
     console.log('done')
+
+
 }
-
-
 
 
 
@@ -115,4 +116,4 @@ while (x !== 4 && y !== 2) {
 // You emerge into a meadow with tall grass.
 // Your coordinates are (-1, 0). 
 // In the meadow lies a Golden Keyboard. Game over, you win!
-// And finally, make another commit in git!
+// And finally, make another commit in git
